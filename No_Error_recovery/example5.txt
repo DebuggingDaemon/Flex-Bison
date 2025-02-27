@@ -1,0 +1,10 @@
+
+public class Fclass{
+private int g;
+ public void function(){
+   double a=9.7d, b=8.2d, c=8.0d, d=9.4d, e=4.3d;
+   double result = (a + b) * (c - d) / e + (d * e) - a+9-8/(a-4)*(5-c)-d;
+   g=98+result;
+ }
+
+}

@@ -1,0 +1,6 @@
+
+public class Fclass{
+ public void function(){
+   double result = (a + b) * (c - d) / e + (d * e) - a;
+ }
+}

@@ -1,0 +1,12 @@
+
+public class Fclass{
+private int g;
+ public void function(){
+  boolean x = true;
+        boolean y = false;
+        boolean z = true;
+        boolean w = false;
+        boolean result = ((x==true) && (y==true))|| (z==true && w==false) && !(x==true && z==false) || (y==true || w==true);
+ }
+
+}

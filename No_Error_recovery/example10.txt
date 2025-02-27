@@ -1,0 +1,13 @@
+public class Out{
+    private void function(){
+        Out mm=new Out();
+        mm.function();
+    }
+    public class Inner{
+        int f(){
+        Out nn=new Out();
+        nn.function();
+        }
+    }
+
+}

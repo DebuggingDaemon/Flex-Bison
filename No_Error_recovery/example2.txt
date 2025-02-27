@@ -1,0 +1,8 @@
+
+public class Fclass{
+ public void function(){
+   int markos;
+    return markos;
+
+ }
+}

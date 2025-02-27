@@ -1,0 +1,37 @@
+public class Myclass{
+public class InnerClass{}
+double c;
+public int x(){}
+void funcn(int a){
+    int ab;
+    for(int i=0; i<19; i=i+1){
+        do{
+            if(ab==0){
+                switch(ab){
+                    case 4:
+                    {
+                        int gfff, cvv, ac;
+                        a=9*5*(a+ab*a)/i+(a-ab)/ab*(gfff)/cvv*ac+9-5+7*(4-3)/8;
+                    }
+                }
+            }else if(ab>0 || ab!=9){
+                out.println("%s", ab);
+            }
+        }while(ab==9);
+    }
+    x();
+    InnerClass cg=new InnerClass();
+    int main(){}
+}
+}
+
+
+public class Nclass{
+public void f(){
+    Myclass mc=new Myclass();
+    mc.funcn();
+    double a=mc.c;
+    a=a+0.9d+8.6d;
+    mc.x();
+}
+}
