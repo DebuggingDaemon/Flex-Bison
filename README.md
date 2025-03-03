@@ -31,4 +31,4 @@ This project analyzes code written in a simplified Java-like language. Example f
   1) clone the repository
       - The folder 'No_Error_Recovery' has the version of the parser that stops parsing in the first error (syntax or semantic)
       - The folder 'Error recovery' has the version of the parser that stops parsing in the first semantic error (reporting all syntax errors until this point)
-  2) In each of the parser versions run make and then ./comp <file to analyze> (replace <file to analyze> with your file you will find some exmple files in the folders of the repository)    
+  2) In each of the parser versions run make and then ./comp ''file to analyze'' (replace ''file to analyze'' with your file, you will find some exmaple files in the folders of the repository)    
