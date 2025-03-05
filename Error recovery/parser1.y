@@ -1,4 +1,5 @@
 %{
+/* it uses error recovery*/
 #include <iostream>
 #include <cstdio>
 #include <cmath>
