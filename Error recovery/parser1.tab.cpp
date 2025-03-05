@@ -69,6 +69,7 @@
 /* First part of user prologue.  */
 #line 1 "parser1.y"
 
+/* it uses error recovery*/
 #include <iostream>
 #include <cstdio>
 #include <cmath>
@@ -119,7 +120,7 @@ char* cName=nullptr;
 char* prevClass=nullptr;
 using namespace std;
 
-#line 123 "parser1.tab.cpp"
+#line 124 "parser1.tab.cpp"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -626,22 +627,22 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int16 yyrline[] =
 {
-       0,   123,   123,   124,   125,   127,   127,   148,   149,   151,
-     152,   153,   154,   155,   156,   158,   159,   161,   162,   163,
-     165,   166,   167,   168,   169,   170,   171,   173,   175,   177,
-     178,   180,   181,   186,   188,   191,   195,   196,   198,   200,
-     201,   204,   205,   207,   210,   213,   216,   217,   220,   221,
-     222,   223,   225,   226,   227,   229,   232,   235,   239,   242,
-     245,   249,   252,   255,   258,   261,   265,   268,   272,   273,
-     274,   275,   276,   278,   279,   280,   281,   283,   284,   285,
-     286,   287,   288,   290,   291,   293,   298,   303,   304,   306,
-     307,   308,   309,   311,   325,   326,   329,   330,   333,   334,
-     337,   338,   342,   344,   346,   348,   350,   352,   354,   356,
-     360,   361,   367,   368,   369,   370,   371,   372,   374,   376,
-     377,   378,   379,   381,   383,   384,   386,   388,   388,   390,
-     391,   393,   394,   396,   396,   398,   400,   400,   402,   403,
-     407,   409,   409,   411,   411,   413,   414,   416,   416,   417,
-     417
+       0,   124,   124,   125,   126,   128,   128,   149,   150,   152,
+     153,   154,   155,   156,   157,   159,   160,   162,   163,   164,
+     166,   167,   168,   169,   170,   171,   172,   174,   176,   178,
+     179,   181,   182,   187,   189,   192,   196,   197,   199,   201,
+     202,   205,   206,   208,   211,   214,   217,   218,   221,   222,
+     223,   224,   226,   227,   228,   230,   233,   236,   240,   243,
+     246,   250,   253,   256,   259,   262,   266,   269,   273,   274,
+     275,   276,   277,   279,   280,   281,   282,   284,   285,   286,
+     287,   288,   289,   291,   292,   294,   299,   304,   305,   307,
+     308,   309,   310,   312,   326,   327,   330,   331,   334,   335,
+     338,   339,   343,   345,   347,   349,   351,   353,   355,   357,
+     361,   362,   368,   369,   370,   371,   372,   373,   375,   377,
+     378,   379,   380,   382,   384,   385,   387,   389,   389,   391,
+     392,   394,   395,   397,   397,   399,   401,   401,   403,   404,
+     408,   410,   410,   412,   412,   414,   415,   417,   417,   418,
+     418
 };
 #endif
 
@@ -1948,7 +1949,7 @@ yyreduce:
     switch (yyn)
       {
   case 5: /* $@1: %empty  */
-#line 127 "parser1.y"
+#line 128 "parser1.y"
                             {if(cName==nullptr) asprintf(&cName, "%s", (yyvsp[0].symbol));
                              else{
                                    asprintf(&prevClass, "%s", cName);
@@ -1963,296 +1964,296 @@ yyreduce:
                                   exit(EXIT_FAILURE);
                             }
                             }
-#line 1967 "parser1.tab.cpp"
+#line 1968 "parser1.tab.cpp"
     break;
 
   case 6: /* class: PUBLIC CLASS ID $@1 OPEN_BRACES class_body CLOSED_BRACES  */
-#line 141 "parser1.y"
+#line 142 "parser1.y"
                             {
                                                          cVis=PUBLIC_V;
                                                          cclass=cscope-1;
                                                          if(prevClass!=nullptr)
                                                                asprintf(&cName, "%s", prevClass);
                             }
-#line 1978 "parser1.tab.cpp"
+#line 1979 "parser1.tab.cpp"
     break;
 
   case 9: /* member: MODIFIER definition SEMICOLON  */
-#line 151 "parser1.y"
+#line 152 "parser1.y"
                                            {cVis=PUBLIC_V;}
-#line 1984 "parser1.tab.cpp"
+#line 1985 "parser1.tab.cpp"
     break;
 
   case 10: /* member: MODIFIER function_declare  */
-#line 152 "parser1.y"
+#line 153 "parser1.y"
                                        {cVis=PUBLIC_V;}
-#line 1990 "parser1.tab.cpp"
+#line 1991 "parser1.tab.cpp"
     break;
 
   case 11: /* member: definition SEMICOLON  */
-#line 153 "parser1.y"
+#line 154 "parser1.y"
                                   {cVis=PUBLIC_V;}
-#line 1996 "parser1.tab.cpp"
+#line 1997 "parser1.tab.cpp"
     break;
 
   case 12: /* member: function_declare  */
-#line 154 "parser1.y"
+#line 155 "parser1.y"
                               {cVis=PUBLIC_V;}
-#line 2002 "parser1.tab.cpp"
+#line 2003 "parser1.tab.cpp"
     break;
 
   case 13: /* member: class  */
-#line 155 "parser1.y"
+#line 156 "parser1.y"
                    {cVis=PUBLIC_V;}
-#line 2008 "parser1.tab.cpp"
+#line 2009 "parser1.tab.cpp"
     break;
 
   case 27: /* break_command: BREAK SEMICOLON  */
-#line 173 "parser1.y"
+#line 174 "parser1.y"
                                     {if(!loop){yyerror("Error: break outside of loop"); exit(EXIT_FAILURE);}}
-#line 2014 "parser1.tab.cpp"
+#line 2015 "parser1.tab.cpp"
     break;
 
   case 31: /* basic_helper: ID  */
-#line 180 "parser1.y"
+#line 181 "parser1.y"
                       {variable_semantic_error((yyvsp[0].symbol), cscope, cType);}
-#line 2020 "parser1.tab.cpp"
+#line 2021 "parser1.tab.cpp"
     break;
 
   case 32: /* basic_helper: ID EQUAL expression  */
-#line 181 "parser1.y"
+#line 182 "parser1.y"
                                        {variable_semantic_error((yyvsp[-2].symbol), cscope, cType);
                                         Expr* exp=new Expr();
                                         asprintf(&exp->typeof_expr, "%s", cType);
                                         assign_at_definition_mismatch_error(exp, (yyvsp[0].expT));
                                        }
-#line 2030 "parser1.tab.cpp"
+#line 2031 "parser1.tab.cpp"
     break;
 
   case 33: /* basic_helper: ID OPEN_BRACKS arithmetic CLOSED_BRACKS  */
-#line 186 "parser1.y"
+#line 187 "parser1.y"
                                                            {array_semantic_error((yyvsp[-3].symbol), cscope, cType); Expr* exp=new Expr(); asprintf(&exp->typeof_expr, "%s", "int"); assign_mismatch_error((yyvsp[-1].expT), exp);}
-#line 2036 "parser1.tab.cpp"
+#line 2037 "parser1.tab.cpp"
     break;
 
   case 34: /* function_call: ID OPEN_PARENTHESIS argument_list CLOSED_PARENTHESIS  */
-#line 188 "parser1.y"
+#line 189 "parser1.y"
                                                                          {
                                                                              function_undeclared_error((yyvsp[-3].symbol), cscope, (yyval.expT));
                                                                          }
-#line 2044 "parser1.tab.cpp"
+#line 2045 "parser1.tab.cpp"
     break;
 
   case 35: /* function_call: ID OPEN_PARENTHESIS CLOSED_PARENTHESIS  */
-#line 191 "parser1.y"
+#line 192 "parser1.y"
                                                           {
                                                               function_undeclared_error((yyvsp[-2].symbol), cscope, (yyval.expT));
                                                            }
-#line 2052 "parser1.tab.cpp"
+#line 2053 "parser1.tab.cpp"
     break;
 
   case 39: /* assign: variable EQUAL expression  */
-#line 200 "parser1.y"
+#line 201 "parser1.y"
                                        {assign_mismatch_error((yyvsp[-2].expT), (yyvsp[0].expT));}
-#line 2058 "parser1.tab.cpp"
+#line 2059 "parser1.tab.cpp"
     break;
 
   case 40: /* assign: member_variable EQUAL expression  */
-#line 201 "parser1.y"
+#line 202 "parser1.y"
                                               {assign_mismatch_error((yyvsp[-2].expT), (yyvsp[0].expT));}
-#line 2064 "parser1.tab.cpp"
+#line 2065 "parser1.tab.cpp"
     break;
 
   case 41: /* variable: ID  */
-#line 204 "parser1.y"
+#line 205 "parser1.y"
                   {isArr=false; variable_undeclared_error((yyvsp[0].symbol), cscope, (yyval.expT));}
-#line 2070 "parser1.tab.cpp"
+#line 2071 "parser1.tab.cpp"
     break;
 
   case 42: /* variable: ID OPEN_BRACKS arithmetic CLOSED_BRACKS  */
-#line 205 "parser1.y"
+#line 206 "parser1.y"
                                                        {isArr=true; variable_undeclared_error((yyvsp[-3].symbol), cscope, (yyval.expT)); Expr* exp=new Expr(); asprintf(&exp->typeof_expr, "%s", "int"); assign_mismatch_error((yyvsp[-1].expT), exp);}
-#line 2076 "parser1.tab.cpp"
+#line 2077 "parser1.tab.cpp"
     break;
 
   case 43: /* expression: arithmetic  */
-#line 207 "parser1.y"
+#line 208 "parser1.y"
                             {(yyval.expT)=new Expr();
                              asprintf(&(yyval.expT)->typeof_expr, "%s", (yyvsp[0].expT)->typeof_expr);
                             }
-#line 2084 "parser1.tab.cpp"
+#line 2085 "parser1.tab.cpp"
     break;
 
   case 44: /* expression: logic  */
-#line 210 "parser1.y"
+#line 211 "parser1.y"
                       {(yyval.expT)=new Expr();
                        asprintf(&(yyval.expT)->typeof_expr, "%s", "boolean");
                       }
-#line 2092 "parser1.tab.cpp"
+#line 2093 "parser1.tab.cpp"
     break;
 
   case 45: /* expression: object_creation  */
-#line 213 "parser1.y"
+#line 214 "parser1.y"
                                 {(yyval.expT)=new Expr();
                        asprintf(&(yyval.expT)->typeof_expr, "%s", (yyvsp[0].expT)->typeof_expr);}
-#line 2099 "parser1.tab.cpp"
+#line 2100 "parser1.tab.cpp"
     break;
 
   case 55: /* arithmetic: factor  */
-#line 229 "parser1.y"
+#line 230 "parser1.y"
                         {(yyval.expT)=new Expr();
                          asprintf(&(yyval.expT)->typeof_expr, "%s", (yyvsp[0].expT)->typeof_expr);
                         }
-#line 2107 "parser1.tab.cpp"
+#line 2108 "parser1.tab.cpp"
     break;
 
   case 56: /* arithmetic: arithmetic PLUS factor  */
-#line 232 "parser1.y"
+#line 233 "parser1.y"
                                        {(yyval.expT)=new Expr();
                                         type_mismatch_error((yyvsp[-2].expT), (yyvsp[0].expT), (yyval.expT), '+');
                                        }
-#line 2115 "parser1.tab.cpp"
+#line 2116 "parser1.tab.cpp"
     break;
 
   case 57: /* arithmetic: arithmetic MINUS factor  */
-#line 235 "parser1.y"
+#line 236 "parser1.y"
                                         {(yyval.expT)=new Expr();
                                          type_mismatch_error((yyvsp[-2].expT), (yyvsp[0].expT), (yyval.expT), '-');
                                         }
-#line 2123 "parser1.tab.cpp"
+#line 2124 "parser1.tab.cpp"
     break;
 
   case 58: /* factor: term  */
-#line 239 "parser1.y"
+#line 240 "parser1.y"
                   {(yyval.expT)=new Expr();
                    asprintf(&(yyval.expT)->typeof_expr, "%s", (yyvsp[0].expT)->typeof_expr);
                   }
-#line 2131 "parser1.tab.cpp"
+#line 2132 "parser1.tab.cpp"
     break;
 
   case 59: /* factor: factor TIMES term  */
-#line 242 "parser1.y"
+#line 243 "parser1.y"
                                {(yyval.expT)=new Expr();
                                 type_mismatch_error((yyvsp[-2].expT), (yyvsp[0].expT), (yyval.expT), '*');
                                }
-#line 2139 "parser1.tab.cpp"
+#line 2140 "parser1.tab.cpp"
     break;
 
   case 60: /* factor: factor DIV term  */
-#line 245 "parser1.y"
+#line 246 "parser1.y"
                              {(yyval.expT)=new Expr();
                               type_mismatch_error((yyvsp[-2].expT), (yyvsp[0].expT), (yyval.expT), '/');
                              }
-#line 2147 "parser1.tab.cpp"
+#line 2148 "parser1.tab.cpp"
     break;
 
   case 61: /* term: basic_exp  */
-#line 249 "parser1.y"
+#line 250 "parser1.y"
                     {(yyval.expT)=new Expr();
                      asprintf(&(yyval.expT)->typeof_expr, "%s", (yyvsp[0].expT)->typeof_expr);
                     }
-#line 2155 "parser1.tab.cpp"
+#line 2156 "parser1.tab.cpp"
     break;
 
   case 62: /* term: CHAR  */
-#line 252 "parser1.y"
+#line 253 "parser1.y"
                {(yyval.expT)=new Expr();
                 asprintf(&(yyval.expT)->typeof_expr, "%s", "char");
                }
-#line 2163 "parser1.tab.cpp"
+#line 2164 "parser1.tab.cpp"
     break;
 
   case 63: /* term: STRING  */
-#line 255 "parser1.y"
+#line 256 "parser1.y"
                   {(yyval.expT)=new Expr();
                    asprintf(&(yyval.expT)->typeof_expr, "%s", "String");
                   }
-#line 2171 "parser1.tab.cpp"
+#line 2172 "parser1.tab.cpp"
     break;
 
   case 64: /* term: number  */
-#line 258 "parser1.y"
+#line 259 "parser1.y"
                   {(yyval.expT)=new Expr();
                    asprintf(&(yyval.expT)->typeof_expr, "%s", (yyvsp[0].expT)->typeof_expr);
                   }
-#line 2179 "parser1.tab.cpp"
+#line 2180 "parser1.tab.cpp"
     break;
 
   case 65: /* term: OPEN_PARENTHESIS arithmetic CLOSED_PARENTHESIS  */
-#line 261 "parser1.y"
+#line 262 "parser1.y"
                                                           {(yyval.expT)=new Expr();
                                                            asprintf(&(yyval.expT)->typeof_expr, "%s", (yyvsp[-1].expT)->typeof_expr);
                                                           }
-#line 2187 "parser1.tab.cpp"
+#line 2188 "parser1.tab.cpp"
     break;
 
   case 66: /* number: INT  */
-#line 265 "parser1.y"
+#line 266 "parser1.y"
                  {(yyval.expT)=new Expr();
                   asprintf(&(yyval.expT)->typeof_expr, "%s", "int");
                  }
-#line 2195 "parser1.tab.cpp"
+#line 2196 "parser1.tab.cpp"
     break;
 
   case 67: /* number: DOUBLE  */
-#line 268 "parser1.y"
+#line 269 "parser1.y"
                     {(yyval.expT)=new Expr();
                      asprintf(&(yyval.expT)->typeof_expr, "%s", "double");
                     }
-#line 2203 "parser1.tab.cpp"
+#line 2204 "parser1.tab.cpp"
     break;
 
   case 68: /* comparison: arithmetic cop arithmetic  */
-#line 272 "parser1.y"
+#line 273 "parser1.y"
                                           {type_mismatch_error((yyvsp[-2].expT), (yyvsp[0].expT), (yyval.expT), '>'); asprintf(&(yyval.expT)->typeof_expr, "%s", "boolean");}
-#line 2209 "parser1.tab.cpp"
+#line 2210 "parser1.tab.cpp"
     break;
 
   case 69: /* comparison: logic_term ISEQUAL logic_term  */
-#line 273 "parser1.y"
+#line 274 "parser1.y"
                                                {asprintf(&(yyval.expT)->typeof_expr, "%s", "boolean");}
-#line 2215 "parser1.tab.cpp"
+#line 2216 "parser1.tab.cpp"
     break;
 
   case 70: /* comparison: logic_term NOTEQUAL logic_term  */
-#line 274 "parser1.y"
+#line 275 "parser1.y"
                                                 {asprintf(&(yyval.expT)->typeof_expr, "%s", "boolean");}
-#line 2221 "parser1.tab.cpp"
+#line 2222 "parser1.tab.cpp"
     break;
 
   case 71: /* comparison: basic_exp BOOLCMP  */
-#line 275 "parser1.y"
+#line 276 "parser1.y"
                                    {if(strcmp((yyvsp[-1].expT)->typeof_expr, "boolean")!=0){ yyerror("Error: incompatible types for action"); exit(EXIT_FAILURE);} asprintf(&(yyval.expT)->typeof_expr, "%s", "boolean");}
-#line 2227 "parser1.tab.cpp"
+#line 2228 "parser1.tab.cpp"
     break;
 
   case 72: /* comparison: logic_term BOOLCMP  */
-#line 276 "parser1.y"
+#line 277 "parser1.y"
                                     {asprintf(&(yyval.expT)->typeof_expr, "%s", "boolean");}
-#line 2233 "parser1.tab.cpp"
+#line 2234 "parser1.tab.cpp"
     break;
 
   case 85: /* parameter: data_type ID  */
-#line 293 "parser1.y"
+#line 294 "parser1.y"
                             {
                          cscope++;
                          variable_semantic_error((yyvsp[0].symbol), cscope, (yyvsp[-1].symbol));
                         cscope--;
                         }
-#line 2243 "parser1.tab.cpp"
+#line 2244 "parser1.tab.cpp"
     break;
 
   case 86: /* parameter: data_type ID OPEN_BRACKS CLOSED_BRACKS  */
-#line 298 "parser1.y"
+#line 299 "parser1.y"
                                                       {
                                                    cscope++;
                                                   array_semantic_error((yyvsp[-2].symbol), cscope, (yyvsp[-3].symbol));
                                                  cscope--;}
-#line 2252 "parser1.tab.cpp"
+#line 2253 "parser1.tab.cpp"
     break;
 
   case 93: /* object_creation: NEW ID OPEN_PARENTHESIS CLOSED_PARENTHESIS  */
-#line 311 "parser1.y"
+#line 312 "parser1.y"
                                                                {
                                                                                            if(!isupper((yyvsp[-2].symbol)[0])){
                                                                                                   yyerror("Error: class names begin with upperCase");
@@ -2266,207 +2267,207 @@ yyreduce:
                                                                                            (yyval.expT)=new Expr();
                                                                                            asprintf(&(yyval.expT)->typeof_expr, "%s", (yyvsp[-2].symbol));
                                                                              }
-#line 2270 "parser1.tab.cpp"
+#line 2271 "parser1.tab.cpp"
     break;
 
   case 94: /* member_variable: variable DOT ID  */
-#line 325 "parser1.y"
+#line 326 "parser1.y"
                                      {isArr=false; Visibility vi=member_variable_undeclared_error((yyvsp[0].symbol), (yyval.expT), (yyvsp[-2].expT)->typeof_expr); if(vi!=PUBLIC_V && strcmp(cName, (yyvsp[-2].expT)->typeof_expr)!=0){yyerror("Access is not allowed in that member here"); exit(EXIT_FAILURE);}}
-#line 2276 "parser1.tab.cpp"
+#line 2277 "parser1.tab.cpp"
     break;
 
   case 95: /* member_variable: variable DOT ID OPEN_BRACKS arithmetic CLOSED_BRACKS  */
-#line 326 "parser1.y"
+#line 327 "parser1.y"
                                                                           {isArr=true; Visibility vi=member_variable_undeclared_error((yyvsp[-3].symbol), (yyval.expT), (yyvsp[-5].expT)->typeof_expr);
                                                                            if(vi!=PUBLIC_V && strcmp(cName, (yyvsp[-5].expT)->typeof_expr)!=0){yyerror("Access is not allowed in that member here"); exit(EXIT_FAILURE);}
                                                                            Expr* exp=new Expr(); asprintf(&exp->typeof_expr, "%s", "int"); assign_mismatch_error((yyvsp[-1].expT), exp);}
-#line 2284 "parser1.tab.cpp"
+#line 2285 "parser1.tab.cpp"
     break;
 
   case 96: /* member_variable: member_variable DOT ID  */
-#line 329 "parser1.y"
+#line 330 "parser1.y"
                                             {isArr=false; Visibility vi=member_variable_undeclared_error((yyvsp[0].symbol), (yyval.expT), (yyvsp[-2].expT)->typeof_expr); if(vi!=PUBLIC_V && strcmp(cName, (yyvsp[-2].expT)->typeof_expr)!=0){yyerror("Access is not allowed in that member here"); exit(EXIT_FAILURE);}}
-#line 2290 "parser1.tab.cpp"
+#line 2291 "parser1.tab.cpp"
     break;
 
   case 97: /* member_variable: member_variable DOT ID OPEN_BRACKS arithmetic CLOSED_BRACKS  */
-#line 330 "parser1.y"
+#line 331 "parser1.y"
                                                                                  {isArr=true; Visibility vi=member_variable_undeclared_error((yyvsp[-3].symbol), (yyval.expT), (yyvsp[-5].expT)->typeof_expr);
                                                                                  if(vi!=PUBLIC_V && strcmp(cName, (yyvsp[-5].expT)->typeof_expr)!=0){yyerror("Access is not allowed in that member here"); exit(EXIT_FAILURE);}
                                                                                  Expr* exp=new Expr(); asprintf(&exp->typeof_expr, "%s", "int"); assign_mismatch_error((yyvsp[-1].expT), exp);}
-#line 2298 "parser1.tab.cpp"
+#line 2299 "parser1.tab.cpp"
     break;
 
   case 98: /* member_variable: function_call DOT ID  */
-#line 333 "parser1.y"
+#line 334 "parser1.y"
                                           {isArr=false; Visibility vi=member_variable_undeclared_error((yyvsp[0].symbol), (yyval.expT), (yyvsp[-2].expT)->typeof_expr); if(vi!=PUBLIC_V && strcmp(cName, (yyvsp[-2].expT)->typeof_expr)!=0){yyerror("Access is not allowed in that member here"); exit(EXIT_FAILURE);}}
-#line 2304 "parser1.tab.cpp"
+#line 2305 "parser1.tab.cpp"
     break;
 
   case 99: /* member_variable: function_call DOT ID OPEN_BRACKS arithmetic CLOSED_BRACKS  */
-#line 334 "parser1.y"
+#line 335 "parser1.y"
                                                                                {isArr=true; Visibility vi=member_variable_undeclared_error((yyvsp[-3].symbol), (yyval.expT), (yyvsp[-5].expT)->typeof_expr);
                                                                                  if(vi!=PUBLIC_V && strcmp(cName, (yyvsp[-5].expT)->typeof_expr)!=0){yyerror("Access is not allowed in that member here"); exit(EXIT_FAILURE);}
                                                                                  Expr* exp=new Expr(); asprintf(&exp->typeof_expr, "%s", "int"); assign_mismatch_error((yyvsp[-1].expT), exp);}
-#line 2312 "parser1.tab.cpp"
+#line 2313 "parser1.tab.cpp"
     break;
 
   case 100: /* member_variable: method_call DOT ID  */
-#line 337 "parser1.y"
+#line 338 "parser1.y"
                                         {isArr=false; Visibility vi=member_variable_undeclared_error((yyvsp[0].symbol), (yyval.expT), (yyvsp[-2].expT)->typeof_expr); if(vi!=PUBLIC_V && strcmp(cName, (yyvsp[-2].expT)->typeof_expr)!=0){yyerror("Access is not allowed in that member here"); exit(EXIT_FAILURE);}}
-#line 2318 "parser1.tab.cpp"
+#line 2319 "parser1.tab.cpp"
     break;
 
   case 101: /* member_variable: method_call DOT ID OPEN_BRACKS arithmetic CLOSED_BRACKS  */
-#line 338 "parser1.y"
+#line 339 "parser1.y"
                                                                              {isArr=true; Visibility vi=member_variable_undeclared_error((yyvsp[-3].symbol), (yyval.expT), (yyvsp[-5].expT)->typeof_expr);
                                                                            if(vi!=PUBLIC_V && strcmp(cName, (yyvsp[-5].expT)->typeof_expr)!=0){yyerror("Access is not allowed in that member here"); exit(EXIT_FAILURE);}
                                                                            Expr* exp=new Expr(); asprintf(&exp->typeof_expr, "%s", "int"); assign_mismatch_error((yyvsp[-1].expT), exp);}
-#line 2326 "parser1.tab.cpp"
+#line 2327 "parser1.tab.cpp"
     break;
 
   case 102: /* method_call: variable DOT ID OPEN_PARENTHESIS argument_list CLOSED_PARENTHESIS  */
-#line 342 "parser1.y"
+#line 343 "parser1.y"
                                                                                    {Visibility vi=member_function_undeclared_error((yyvsp[-3].symbol), (yyval.expT), (yyvsp[-5].expT)->typeof_expr);
                                                                                     if(vi!=PUBLIC_V && strcmp(cName, (yyvsp[-5].expT)->typeof_expr)!=0){yyerror("Access is not allowed in that member here"); exit(EXIT_FAILURE);}}
-#line 2333 "parser1.tab.cpp"
+#line 2334 "parser1.tab.cpp"
     break;
 
   case 103: /* method_call: variable DOT ID OPEN_PARENTHESIS CLOSED_PARENTHESIS  */
-#line 344 "parser1.y"
+#line 345 "parser1.y"
                                                                      {Visibility vi=member_function_undeclared_error((yyvsp[-2].symbol), (yyval.expT), (yyvsp[-4].expT)->typeof_expr);
                                                                       if(vi!=PUBLIC_V && strcmp(cName, (yyvsp[-4].expT)->typeof_expr)!=0){yyerror("Access is not allowed in that member here"); exit(EXIT_FAILURE);}}
-#line 2340 "parser1.tab.cpp"
+#line 2341 "parser1.tab.cpp"
     break;
 
   case 104: /* method_call: member_variable DOT ID OPEN_PARENTHESIS argument_list CLOSED_PARENTHESIS  */
-#line 346 "parser1.y"
+#line 347 "parser1.y"
                                                                                           {Visibility vi=member_function_undeclared_error((yyvsp[-3].symbol), (yyval.expT), (yyvsp[-5].expT)->typeof_expr);
                                                                                     if(vi!=PUBLIC_V && strcmp(cName, (yyvsp[-5].expT)->typeof_expr)!=0){yyerror("Access is not allowed in that member here"); exit(EXIT_FAILURE);}}
-#line 2347 "parser1.tab.cpp"
+#line 2348 "parser1.tab.cpp"
     break;
 
   case 105: /* method_call: member_variable DOT ID OPEN_PARENTHESIS CLOSED_PARENTHESIS  */
-#line 348 "parser1.y"
+#line 349 "parser1.y"
                                                                             {Visibility vi=member_function_undeclared_error((yyvsp[-2].symbol), (yyval.expT), (yyvsp[-4].expT)->typeof_expr);
                                                                       if(vi!=PUBLIC_V && strcmp(cName, (yyvsp[-4].expT)->typeof_expr)!=0){yyerror("Access is not allowed in that member here"); exit(EXIT_FAILURE);}}
-#line 2354 "parser1.tab.cpp"
+#line 2355 "parser1.tab.cpp"
     break;
 
   case 106: /* method_call: function_call DOT ID OPEN_PARENTHESIS argument_list CLOSED_PARENTHESIS  */
-#line 350 "parser1.y"
+#line 351 "parser1.y"
                                                                                         {Visibility vi=member_function_undeclared_error((yyvsp[-3].symbol), (yyval.expT), (yyvsp[-5].expT)->typeof_expr);
                                                                                     if(vi!=PUBLIC_V && strcmp(cName, (yyvsp[-5].expT)->typeof_expr)!=0){yyerror("Access is not allowed in that member here"); exit(EXIT_FAILURE);}}
-#line 2361 "parser1.tab.cpp"
+#line 2362 "parser1.tab.cpp"
     break;
 
   case 107: /* method_call: function_call DOT ID OPEN_PARENTHESIS CLOSED_PARENTHESIS  */
-#line 352 "parser1.y"
+#line 353 "parser1.y"
                                                                           {Visibility vi=member_function_undeclared_error((yyvsp[-2].symbol), (yyval.expT), (yyvsp[-4].expT)->typeof_expr);
                                                                       if(vi!=PUBLIC_V && strcmp(cName, (yyvsp[-4].expT)->typeof_expr)!=0){yyerror("Access is not allowed in that member here"); exit(EXIT_FAILURE);}}
-#line 2368 "parser1.tab.cpp"
+#line 2369 "parser1.tab.cpp"
     break;
 
   case 108: /* method_call: method_call DOT ID OPEN_PARENTHESIS argument_list CLOSED_PARENTHESIS  */
-#line 354 "parser1.y"
+#line 355 "parser1.y"
                                                                                       {Visibility vi=member_function_undeclared_error((yyvsp[-3].symbol), (yyval.expT), (yyvsp[-5].expT)->typeof_expr);
                                                                                     if(vi!=PUBLIC_V && strcmp(cName, (yyvsp[-5].expT)->typeof_expr)!=0){yyerror("Access is not allowed in that member here"); exit(EXIT_FAILURE);}}
-#line 2375 "parser1.tab.cpp"
+#line 2376 "parser1.tab.cpp"
     break;
 
   case 109: /* method_call: method_call DOT ID OPEN_PARENTHESIS CLOSED_PARENTHESIS  */
-#line 356 "parser1.y"
+#line 357 "parser1.y"
                                                                         {Visibility vi=member_function_undeclared_error((yyvsp[-2].symbol), (yyval.expT), (yyvsp[-4].expT)->typeof_expr);
                                                                       if(vi!=PUBLIC_V && strcmp(cName, (yyvsp[-4].expT)->typeof_expr)!=0){yyerror("Access is not allowed in that member here"); exit(EXIT_FAILURE);}}
-#line 2382 "parser1.tab.cpp"
+#line 2383 "parser1.tab.cpp"
     break;
 
   case 110: /* return_command: RETURN expression SEMICOLON  */
-#line 360 "parser1.y"
+#line 361 "parser1.y"
                                                 {if(strcmp((yyvsp[-1].expT)->typeof_expr, Ftype)!=0) {yyerror("Incompatible types for action"); exit(EXIT_FAILURE);}}
-#line 2388 "parser1.tab.cpp"
+#line 2389 "parser1.tab.cpp"
     break;
 
   case 111: /* return_command: RETURN SEMICOLON  */
-#line 361 "parser1.y"
+#line 362 "parser1.y"
                                      { if(strcmp("void", Ftype)!=0){
                                              yyerror("Incompatible types for action");
                                              exit(EXIT_FAILURE);
                                        }
                                     }
-#line 2398 "parser1.tab.cpp"
+#line 2399 "parser1.tab.cpp"
     break;
 
   case 127: /* $@2: %empty  */
-#line 388 "parser1.y"
+#line 389 "parser1.y"
                                                                     {asprintf(&chType, "%s", (yyvsp[-1].expT)->typeof_expr);}
-#line 2404 "parser1.tab.cpp"
+#line 2405 "parser1.tab.cpp"
     break;
 
   case 133: /* $@3: %empty  */
-#line 396 "parser1.y"
+#line 397 "parser1.y"
                          {if(strcmp((yyvsp[0].expT)->typeof_expr, chType)!=0){yyerror("Error: incompatible types for action"); exit(EXIT_FAILURE);}}
-#line 2410 "parser1.tab.cpp"
+#line 2411 "parser1.tab.cpp"
     break;
 
   case 136: /* $@4: %empty  */
-#line 400 "parser1.y"
+#line 401 "parser1.y"
                                                                                          {loop=true;}
-#line 2416 "parser1.tab.cpp"
+#line 2417 "parser1.tab.cpp"
     break;
 
   case 137: /* for_loop: FOR OPEN_PARENTHESIS base SEMICOLON logic SEMICOLON step CLOSED_PARENTHESIS $@4 cmd_block  */
-#line 400 "parser1.y"
+#line 401 "parser1.y"
                                                                                                                 {loop=false;}
-#line 2422 "parser1.tab.cpp"
+#line 2423 "parser1.tab.cpp"
     break;
 
   case 138: /* base: assign  */
-#line 402 "parser1.y"
+#line 403 "parser1.y"
                {cscope++;}
-#line 2428 "parser1.tab.cpp"
+#line 2429 "parser1.tab.cpp"
     break;
 
   case 139: /* base: data_type ID EQUAL expression  */
-#line 403 "parser1.y"
+#line 404 "parser1.y"
                                        {              cscope++;
                                                  variable_semantic_error((yyvsp[-2].symbol), cscope, (yyvsp[-3].symbol));
                                    }
-#line 2436 "parser1.tab.cpp"
+#line 2437 "parser1.tab.cpp"
     break;
 
   case 140: /* step: assign  */
-#line 407 "parser1.y"
+#line 408 "parser1.y"
                 {cscope--;}
-#line 2442 "parser1.tab.cpp"
+#line 2443 "parser1.tab.cpp"
     break;
 
   case 141: /* $@5: %empty  */
-#line 409 "parser1.y"
+#line 410 "parser1.y"
                      {loop=true;}
-#line 2448 "parser1.tab.cpp"
+#line 2449 "parser1.tab.cpp"
     break;
 
   case 142: /* do_while_loop: DO $@5 cmd_block WHILE OPEN_PARENTHESIS logic CLOSED_PARENTHESIS SEMICOLON  */
-#line 409 "parser1.y"
+#line 410 "parser1.y"
                                                                                                       {loop=false;}
-#line 2454 "parser1.tab.cpp"
+#line 2455 "parser1.tab.cpp"
     break;
 
   case 143: /* $@6: %empty  */
-#line 411 "parser1.y"
+#line 412 "parser1.y"
                                   {asprintf(&Ftype, "%s", (yyvsp[-1].symbol)); function_semantic_error((yyvsp[0].symbol), cscope, (yyvsp[-1].symbol));}
-#line 2460 "parser1.tab.cpp"
+#line 2461 "parser1.tab.cpp"
     break;
 
   case 149: /* data_type: TYPE  */
-#line 417 "parser1.y"
+#line 418 "parser1.y"
                    {strcpy((yyval.symbol), (yyvsp[0].dataType)); asprintf(&cType, "%s", (yyvsp[0].dataType));}
-#line 2466 "parser1.tab.cpp"
+#line 2467 "parser1.tab.cpp"
     break;
 
   case 150: /* data_type: ID  */
-#line 417 "parser1.y"
+#line 418 "parser1.y"
                                                                      {Symbol sym((yyvsp[0].symbol), cscope);
                         if(!classes.exists(sym)){
                               yyerror("Undeclared class");
@@ -2477,11 +2478,11 @@ yyreduce:
                             asprintf(&cType, "%s", (yyvsp[0].symbol));
 
                      }}
-#line 2481 "parser1.tab.cpp"
+#line 2482 "parser1.tab.cpp"
     break;
 
 
-#line 2485 "parser1.tab.cpp"
+#line 2486 "parser1.tab.cpp"
 
         default: break;
       }
@@ -2716,7 +2717,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 428 "parser1.y"
+#line 429 "parser1.y"
 
 
 void assign_at_definition_mismatch_error(Expr*& exp1, Expr*& exp2){

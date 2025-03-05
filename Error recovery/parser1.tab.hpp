@@ -110,7 +110,7 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 54 "parser1.y"
+#line 55 "parser1.y"
 
        char dataType[100];
        char symbol[100];
